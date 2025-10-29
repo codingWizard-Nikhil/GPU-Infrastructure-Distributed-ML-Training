@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from datetime import datetime
+from datetime import datetime, timezone
 from database import get_db, JobModel
 from pydantic import BaseModel
 
@@ -36,7 +36,7 @@ def create_job(job: JobSubmit, db: Session = Depends(get_db)):
     new_job = JobModel(
         code=job.code,
         status="pending",
-        submitted_at=datetime.utcnow()
+        submitted_at=datetime.now(timezone.utc)
     )
     db.add(new_job)
     db.commit()
