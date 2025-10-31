@@ -91,7 +91,7 @@ def list():
             # Truncate code if too long
             code = job['code'][:50] + "..." if len(job['code']) > 50 else job['code']
             table.add_row(
-                job['id'] + "...",
+                job['id'],
                 job['status'],
                 job['submitted_at'][:19],
                 code
