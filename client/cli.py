@@ -3,8 +3,8 @@ import requests
 from rich.console import Console
 from rich.table import Table
 from rich import print as rprint
+from secrets import API_URL
 
-API_URL = "http://localhost:8000"
 console = Console()
 
 
